@@ -1,0 +1,11 @@
+au BufNewFile,BufRead *.dec set filetype=uefidec
+au BufNewFile,BufRead *.dsc set filetype=uefidsc
+au BufNewFile,BufRead *.env set filetype=uefidsc
+au BufNewFile,BufRead *.fdf set filetype=uefifdf
+au BufNewFile,BufRead *.inf set filetype=uefiinf
+au BufNewFile,BufRead *.uni set filetype=uefiuni
+au BufNewFile,BufRead *.vfr set filetype=uefivfr
+au BufNewFile,BufRead *.hfr set filetype=uefivfr
+au BufNewFile,BufRead *.sd  set filetype=uefivfr
+au BufNewFile,BufRead *.c   set syntax=uefic
+au BufNewFile,BufRead *.h   set syntax=uefic
