@@ -61,6 +61,6 @@ hi def link vfrDataStruct	Type
 
 
 
-let b:current_syntax = "uefiVFR"
+let b:current_syntax = "uefivfr"
 
 " vim:ts=8:foldmethod=marker

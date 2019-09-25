@@ -152,6 +152,6 @@ hi def link aslMacro		Macro
 
 
 
-let b:current_syntax = "uefiinf"
+let b:current_syntax = "asl"
 
 " vim:ts=8:foldmethod=marker
