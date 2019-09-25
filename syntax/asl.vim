@@ -29,6 +29,10 @@ syn keyword aslControlMethodObj	Arg0 Arg1 Arg2 Arg3 Arg4 Arg5 Arg6 Local0 Local1
 " }}}
 syn region aslCommentL		start="//" skip="\\$" end="$" keepend
 syn region aslComment		start="/\*" end="\*/" 
+syn region aslString		start=+\(L\|u\|u8\|U\|R\|LR\|u8R\|uR\|UR\)\="+ skip=+\\\\\|\\"+ end=+"+
+syn match aslName		"\<\(\u\|_\)\(\u\|\d\|_\)\{3\}\>"
+syn match aslNumber		"0x\x\+\(u\=l\{0,2}\|ll\=u\)\>"
+syn match aslNumber		"\d\+\(u\=l\{0,2}\|ll\=u\)\>"
 
 " Table 5-161 Predefined ACPI Names {{{
 syn keyword aslPredefined	_ACx _ADR _AEI _ALC _ALI _ALN _ALP _ALR _ALT _ALx _ART _ASI _ASZ _ATT _BAS _BBN _BCL _BCM _BCT _BDN _BIF _BIX _BLT _BM _BMA _BMC _BMD _BMS _BQC _BST _BTH _BTM _BTP _CBA _CCA _CDM _CID _CLS _CPC _CRS _CRT _CSD _CST _CWS _DBT _DCK _DCS _DDC _DDN _DEC _DEP _DGS _DIS _DLM _DMA _DOD _DOS _DPL _DRS _DSD _DSM _DSS _DSW _DTI _Exx _EC _EDL _EJD _EJx _END _EVT _FDE _FDI _FDM _FIF _FIT _FIX _FLC _FPS _FSL _FST _GAI _GCP _GHL _GL _GLK _GPD _GPE _GRA _GRT _GSB _GTF _GTM _GWS _HE _HID _HOT _HPP _HPX _HRV _IFT _INI _INT _IOR _IRC _Lxx _LCK _LEN _LID _LIN _LL _LPI _MAF _MAT _MAX _MBM _MEM _MIF _MIN _MLS _MOD _MSG _MSM _MTL _MTP _NTT _OFF _ON _OS _OSC _OSI _OST _PAI _PAR _PCL _PCT _PDC _PDL _PHA _PIC _PIF _PIN _PLD _PMC _PMD _PMM _POL _PPC _PPE _PPI _PR _PR0 _PR1 _PR2 _PR3 _PRE _PRL _PRR _PRS _PRT _PRW _PS0 _PS1 _PS2 _PS3 _PSC _PSD _PSE _PSL _PSR _PSS _PSV _PSW _PTC _PTP _PTS _PUR _PXM _Qxx _RBO _RBW _RDI _REG _REV _RMV _RNG _ROM _RST _RT _RTV _RW _RXL _S0 _S1 _S2 _S3 _S4 _S5 _S1D _S2D _S3D _S4D _S0W _S1W _S2W _S3W _S4W _SB _SBS _SCP _SDD _SEG _SHL _SHR _SI _SIZ _SLI _SLV _SPD _SPE _SRS _SRT _SRV _SST _STA _STB _STM _STP _STR _STV _SUB _SUN _SWS _T_x _TC1 _TC2 _TDL _TFP _TIP _TIV _TMP _TPC _TPT _TRA _TRS _TRT _TSD _TSF _TSN _TSP _TSS _TST _TTP _TTS _TXL _TYP _TZ _TZD _TZM _TZP _UID _UPC _UPD _UPP _VEN _VPO _WAK _Wxx
@@ -83,6 +87,8 @@ hi def link aslCommentL		aslComment
 hi def link aslComment		Comment
 " Constant - String Character Number Boolean Float
 hi def link aslConstant		Constant
+hi def link aslNumber		Number
+hi def link aslString		String
 " Identifier - Function
 " Statement - Conditional Repeat Label Operator Keyword Exception
 hi def link aslTblManagement	Statement
