@@ -77,7 +77,6 @@ syn keyword aslTransferWidth	Width8Bit Width16Bit Width32Bit Width64Bit Width128
 syn keyword aslTranslation	SparseTranslation DenseTranslation
 syn keyword aslType		TypeTranslation TypeStatic
 syn keyword aslUpdateRule	Preserve WriteAsOnes WriteAsZeros
-syn keyword aslUserDefRegionSpace	IntegerData => 0x80 - 0xFF
 syn keyword aslXferType		Transfer8 Transfer16 Transfer8_16
 syn keyword aslWireMode		ThreeWireMode FourWireMode
 " }}}
