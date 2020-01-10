@@ -1,11 +1,15 @@
-au BufNewFile,BufRead *.dec set filetype=uefidec
-au BufNewFile,BufRead *.dsc set filetype=uefidsc
-au BufNewFile,BufRead *.env set filetype=uefidsc
-au BufNewFile,BufRead *.fdf set filetype=uefifdf
-au BufNewFile,BufRead *.inf set filetype=uefiinf
-au BufNewFile,BufRead *.uni set filetype=uefiuni
-au BufNewFile,BufRead *.vfr set filetype=uefivfr
-au BufNewFile,BufRead *.hfr set filetype=uefivfr
-au BufNewFile,BufRead *.sd  set filetype=uefivfr
-au BufNewFile,BufRead *.c   set syntax=uefic
-au BufNewFile,BufRead *.h   set syntax=uefic
+augroup uefivim
+  autocmd!
+  autocmd BufNewFile,BufRead *.dec set filetype=uefidec
+  autocmd BufNewFile,BufRead *.dsc set filetype=uefidsc
+  autocmd BufNewFile,BufRead *.env set filetype=uefidsc
+  autocmd BufNewFile,BufRead *.fdf set filetype=uefifdf
+  autocmd BufNewFile,BufRead *.inf set filetype=uefiinf
+  autocmd BufNewFile,BufRead *.uni set filetype=uefiuni
+  autocmd BufNewFile,BufRead *.vfr set filetype=uefivfr
+  autocmd BufNewFile,BufRead *.hfr set filetype=uefivfr
+  autocmd BufNewFile,BufRead *.sd  set filetype=uefivfr
+  autocmd BufNewFile,BufRead *.c   set syntax=uefic
+  autocmd BufNewFile,BufRead *.h   set syntax=uefic
+augroup END
+

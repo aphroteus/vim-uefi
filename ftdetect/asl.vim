@@ -1,3 +1,7 @@
-au BufNewFile,BufRead *.asl set filetype=asl
-au BufNewFile,BufRead *.asi set filetype=asl
-au BufNewFile,BufRead *.dsl set filetype=asl
+augroup aslvim
+  autocmd!
+  autocmd BufNewFile,BufRead *.asl set filetype=asl
+  autocmd BufNewFile,BufRead *.asi set filetype=asl
+  autocmd BufNewFile,BufRead *.dsl set filetype=asl
+augroup END
+
