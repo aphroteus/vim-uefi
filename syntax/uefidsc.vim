@@ -20,13 +20,13 @@ syn keyword dscBuildOption	FAMILY TARGET TAGNAME ARCH TOOLCODE ATTRIBUTE
 " }}}
 
 syn keyword dscComponent	SOURCE_OVERRIDE_PATH
-syn keyword dscBoolean		TRUE true True 0x1 0x01 1 FALSE false False 0x0 0x00 0 
+syn keyword dscBoolean		TRUE true True 0x1 0x01 1 FALSE false False 0x0 0x00 0
 " Table 5. Operator Precedence and Supported Operands {{{
 syn keyword dscOperator		or OR and AND xor XOR EQ NE IN LE GE LT GT not NOT
 syn match dscOperatorMatch	"||\|&&\||\|==\|!=\|<=\|>=\|<\|>\|+\|-\|!"
 " }}}
 syn keyword dscType		BOOLEAN UINT8 UINT16 UINT32 UINT64 UINT8z UINT16z UINT32z UINT64z VOID
-syn match dscFieldSeparator	"|" 
+syn match dscFieldSeparator	"|"
 syn region dscComment		start="#" end="$" contains=@Spell
 syn keyword dscStatement	!include
 syn match dscConditional	"!\(ifdef\|ifndef\|if\|elseif\|else\|endif\)"

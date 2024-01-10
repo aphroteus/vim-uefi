@@ -16,10 +16,10 @@ syn keyword	decDefine	DEC_SPECIFICATION PACKAGE_NAME PACKAGE_GUID PACKAGE_VERSIO
 " Table 2. EDK II Module Types {{{
 syn keyword decModuleType	BASE SEC PEI_CORE PEIM DXE_CORE DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER DXE_SMM_DRIVER SMM_CORE UEFI_DRIVER UEFI_APPLICATION
 " }}}
-syn keyword	decBoolean	TRUE true True 0x1 0x01 1 FALSE false False 0x0 0x00 0 
+syn keyword	decBoolean	TRUE true True 0x1 0x01 1 FALSE false False 0x0 0x00 0
 syn keyword	decType		BOOLEAN UINT8 UINT16 UINT32 UINT64 UINT8z UINT16z UINT32z UINT64z
 syn match	decTypeMatch	"VOID\*"
-syn match	decFieldSeparator	"|" 
+syn match	decFieldSeparator	"|"
 syn region	decComment	start="#" end="$" contains=@Spell
 
 

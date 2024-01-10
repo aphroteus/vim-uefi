@@ -19,13 +19,13 @@ syn match	fdfMacroh	"\$(\(WORKSPACE\|EDK_SOURCE\|EFI_SOURCE\|EDK_TOOLS_PATH\|ECP
 syn keyword	fdfStatement	TOKEN DEFINE SET INF FILE
 syn keyword	fdfFVFileType	RAW FREEFORM SEC PEI_CORE DXE_CORE PEIM DRIVER COMBO_PEIM_DRIVER SMM_CORE DXE_SMM_DRIVER APPLICATION FV_IMAGE DISPOSABLE
 
-syn keyword	dscBoolean	TRUE true True 0x1 0x01 1 FALSE false False 0x0 0x00 0 
+syn keyword	dscBoolean	TRUE true True 0x1 0x01 1 FALSE false False 0x0 0x00 0
 " Table 5. Operator Precedence and Supported Operands {{{
 syn keyword	fdfOperator	or OR and AND xor XOR EQ NE IN LE GE LT GT not NOT
 syn match	fdfOperator	"||\|&&\||\|==\|!=\|<=\|>=\|<\|>\|+\|-\|!"
 " }}}
 syn keyword	dscType		BOOLEAN UINT8 UINT16 UINT32 UINT64 UINT8z UINT16z UINT32z UINT64z VOID
-syn match	dscFieldSeparator	"|" 
+syn match	dscFieldSeparator	"|"
 syn region	fdfComment		start="#" end="$" contains=@Spell
 syn keyword	fdfStatement	!include
 syn match	fdfConditional	"!\(ifdef\|ifndef\|if\|elseif\|else\|endif\)"
