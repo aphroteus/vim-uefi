@@ -73,6 +73,6 @@ hi def link decCFormatGUID	x220_Gold1
 hi def link decRegistryFormatGUID	x220_Gold1
 
 
-let b:current_syntax = "uefidsc"
+let b:current_syntax = "uefifdf"
 
 " vim:ts=8:foldmethod=marker
