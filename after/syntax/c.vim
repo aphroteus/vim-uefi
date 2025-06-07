@@ -3,15 +3,6 @@
 " Maintainer:	Paul Huang
 " Last Change:	2023 Sep 13
 
-" Quit when a (custom) syntax file was already loaded
-if exists("b:current_syntax")
-  finish
-endif
-
-" Read the C syntax to start with
-runtime! syntax/c.vim
-unlet b:current_syntax
-
 " uefic extensions
 " Refer to UEFI Specification version 2.9
 " 2.1.1 UEFI Images Table 2-1 UEFI Image Memory Types {{{
@@ -120,7 +111,5 @@ hi def link ueficTypeMacro		Typedef
 hi def link ueficEfiStatusError		x203_IndianRed1
 hi def link ueficEfiStatusWarning	x203_IndianRed1
 
-
-let b:current_syntax = "uefic"
 
 " vim:ts=8:foldmethod=marker

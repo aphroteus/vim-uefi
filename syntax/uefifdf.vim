@@ -74,6 +74,6 @@ hi def link decCFormatGUID	x220_Purple
 hi def link decRegistryFormatGUID	x220_Purple
 
 
-let b:current_syntax = "uefidsc"
+let b:current_syntax = "uefifdf"
 
 " vim:ts=8:foldmethod=marker

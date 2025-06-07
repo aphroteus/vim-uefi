@@ -1,8 +1,10 @@
 # vim-uefi
 Syntax highlighting and filetype detection for UEFI BIOS programmer
 
-Install the plugin in Vundle way:
+Install `vim-uefi` as a Vim package (`:help packages`).
 
-```vim
-Plugin 'aphroteus/vim-uefi'
+Here's an example:
+```batch
+mkdir %UserProfile%\vimfiles\pack\plugins\start
+git clone https://github.com/aphroteus/vim-uefi.git %UserProfile%\vimfiles\pack\plugins\start\vim-uefi
 ```
