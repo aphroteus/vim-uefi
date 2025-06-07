@@ -87,6 +87,7 @@ syn match	ueficOperator		"<<\|>>\|&&\|||\|++\|--\|->"
 
 hi x203_IndianRed1			ctermfg=203 guifg=#ff5f5f
 hi x220_Gold1				ctermfg=220 guifg=#ffd700
+hi x220_Purple			ctermfg=220 guifg=#161f7e
 
 " Comment
 " Constant - String Character Number Boolean Float

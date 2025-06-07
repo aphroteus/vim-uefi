@@ -29,12 +29,13 @@ syn match	decFileSep	"\/"
 syn match	decFile		"\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
 syn match	decCommaSpace	transparent contained "\,\s+"
 syn match	decHexByte	"0\(x\|X\)\x"
-syn match	decRegistryFormatGUID	"\x\{8}\-\x\{4}-\x\{4}\-\x\{4}\-\x\{12}"
-syn region	decCFormatGUID	start="{\s*0\(x\|X\)\x\{8}\,\s\+" end="0\(x\|X\)\x\{2}\s*\}\s*\}" oneline contains=decCommaSpace
+syn match	decRegistryFormatGUID	"\x\{7,8}\-\x\{4}-\x\{4}\-\x\{4}\-\x\{12}"
+syn region	decCFormatGUID	start="{\s*0\(x\|X\)\x\{7,8}\,\s\+" end="0\(x\|X\)\x\{2}\s*\}\s*\}" oneline contains=decCommaSpace
 syn match	decNumber	display "0x\x\+\(u\=l\{0,2}\|ll\=u\)\>"
 
 
 hi x220_Gold1			ctermfg=220 guifg=#ffd700
+hi x220_Purple			ctermfg=220 guifg=#161f7e
 
 
 " Comment
@@ -57,8 +58,8 @@ hi def link decFieldSeparator	Delimiter
 " Ignore
 " Error
 " Todo
-hi def link decCFormatGUID	x220_Gold1
-hi def link decRegistryFormatGUID	x220_Gold1
+hi def link decCFormatGUID	x220_Purple
+hi def link decRegistryFormatGUID	x220_Purple
 
 
 let b:current_syntax = "uefidec"

@@ -38,8 +38,8 @@ syn region dscVariable		start="\$(" skip="\\)\|\\\\" end=")"
 "syn match decFile		"\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
 "syn match decFilePath		"\(\w\(\w\|\.\|\-\)*\)\(\/\(\w\(\w\|\.\|\-\)*\)\)*\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
 syn match decCommaSpace		transparent contained "\,\s+"
-syn match decRegistryFormatGUID "\x\{8}\-\x\{4}-\x\{4}\-\x\{4}\-\x\{12}"
-syn region decCFormatGUID	start="{\s*0\(x\|X\)\x\{8}\,\s\+" end="0\(x\|X\)\x\{2}\s*\}\s*\}" oneline contains=decCommaSpace
+syn match decRegistryFormatGUID "\x\{7,8}\-\x\{4}-\x\{4}\-\x\{4}\-\x\{12}"
+syn region decCFormatGUID	start="{\s*0\(x\|X\)\x\{7,8}\,\s\+" end="0\(x\|X\)\x\{2}\s*\}\s*\}" oneline contains=decCommaSpace
 syn match decNumber		display "0x\x\+\(u\=l\{0,2}\|ll\=u\)\>"
 
 
@@ -48,6 +48,7 @@ hi x203_IndianRed1		ctermfg=203 guifg=#ff5f5f
 hi x208_DarkOrange		ctermfg=208 guifg=#ff8700
 hi x220_Gold1			ctermfg=220 guifg=#ffd700
 hi x228_Khaki1			gui=italic ctermfg=228 guifg=#ffff87
+hi x220_Purple			ctermfg=220 guifg=#161f7e
 
 
 " Comment
@@ -76,8 +77,8 @@ hi def link dscFieldSeparator	Delimiter
 " Ignore
 " Error
 " Todo
-hi def link decCFormatGUID	x220_Gold1
-hi def link decRegistryFormatGUID	x220_Gold1
+hi def link decCFormatGUID	x220_Purple
+hi def link decRegistryFormatGUID	x220_Purple
 
 
 let b:current_syntax = "uefidsc"
