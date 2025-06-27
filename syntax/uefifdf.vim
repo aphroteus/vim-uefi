@@ -12,9 +12,9 @@ syn case match
 syn keyword fdfSection                  Defines FD FV Capsule VTF Rule OptionRom
 " {{{ Table 2. Well-known Macro Statements
 syn keyword fdfMacro                    PACKAGES_PATH EDK_TOOLS_BIN
-syn match   fdfMacroh                   "\$(\(WORKSPACE\|EDK_SOURCE\|EFI_SOURCE\|EDK_TOOLS_PATH\|ECP_SOURCE\|OUTPUT_DIRECTORY\|BUILD_NUMBER\|NAMED_GUID\|MODULE_NAME\|INF_VERSION\|INF_OUTPUT\|TARGET\|TOOL_CHAIN_TAG\|ARCH\))"
+syn match   fdfMacroMatch               "\$(\(WORKSPACE\|EDK_SOURCE\|EFI_SOURCE\|EDK_TOOLS_PATH\|ECP_SOURCE\|OUTPUT_DIRECTORY\|BUILD_NUMBER\|NAMED_GUID\|MODULE_NAME\|INF_VERSION\|INF_OUTPUT\|TARGET\|TOOL_CHAIN_TAG\|ARCH\))"
 " }}}
-syn keyword fdfStatement                TOKEN DEFINE SET INF FILE
+syn keyword fdfKeyword                  TOKEN DEFINE SET INF FILE
 syn keyword fdfFVFileType               RAW FREEFORM SEC PEI_CORE DXE_CORE PEIM DRIVER COMBO_PEIM_DRIVER SMM_CORE DXE_SMM_DRIVER APPLICATION FV_IMAGE DISPOSABLE
 
 syn keyword dscBoolean                  TRUE true True 0x1 0x01 1 FALSE false False 0x0 0x00 0
@@ -25,13 +25,13 @@ syn match   fdfOperator                 "||\|&&\||\|==\|!=\|<=\|>=\|<\|>\|+\|-\|
 syn keyword dscType                     BOOLEAN UINT8 UINT16 UINT32 UINT64 UINT8z UINT16z UINT32z UINT64z VOID
 syn match   dscFieldSeparator           "|"
 syn region  fdfComment                  start="#" end="$" contains=@Spell
-syn keyword fdfStatement                !include
+syn keyword fdfKeyword                  !include
 syn match   fdfConditional              "!\(ifdef\|ifndef\|if\|elseif\|else\|endif\)"
 syn region  dscVariable                 start="\$(" skip="\\)\|\\\\" end=")"
 
-syn match   decFileSep                  "\/"
-syn match   decFile                     "\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
-syn match   decCommaSpace               transparent contained "\,\s+"
+" syn match   decFileSep                  "\/"
+" syn match   decFile                     "\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
+" syn match   decCommaSpace               transparent contained "\,\s+"
 syn match   cGUID                       "{\s*0x\x\{8},\s*0x\x\{4},\s*0x\x\{4},\s*{\s*\(0x\x\{2},\s*\)\{7}0x\x\{2}\s*}\s*}"
 syn match   cNullGuid                   "{\s*\(0x0,\s*\)\{3}{\s*\(0x0,\s*\)\{7}0x0\s*}\s*}"
 syn match   stdGUID                     "\x\{8}\-\x\{4}-\x\{4}\-\x\{4}\-\x\{12}"
@@ -56,10 +56,6 @@ hi def link cNullGuid                   Identifier
 hi def link stdGUID                     Identifier
 " Function
 " Statement
-hi def link fdfStatement                Statement
-hi def link fdfSection                  Statement
-hi def link dscDefine                   Statement
-hi def link dscBuildOptions             Statement
 " Conditional
 hi def link fdfConditional              Conditional
 " Repeat
@@ -67,12 +63,16 @@ hi def link fdfConditional              Conditional
 " Operator
 hi def link fdfOperator                 Operator
 " Keyword
+hi def link fdfKeyword                  Keyword
+hi def link fdfSection                  Keyword
+" hi def link dscDefine                   Keyword
+" hi def link dscBuildOptions             Keyword
 " Exception
 " PreProc
 " Include
 " Define
 " Macro
-hi def link fdfMacroMatch               fdfMacro
+hi def link fdfMacroMatch               Macro
 hi def link fdfMacro                    Macro
 " PreCondit
 " Type

@@ -9,12 +9,15 @@ if exists("b:current_syntax")
 endif
 
 syn case match
-syn keyword infSection                  Defines BuildOptions LibraryClasses Packages Sources UserExtensions Protocols Ppis Guids Depex Binaries
+syn keyword infSection                  Defines Sources BuildOptions Binaries Includes Protocols Ppis Guids LibraryClasses Packages FeaturePcd FixedPcd PatchPcd Pcd PcdEx Depex UserExtensions
 " Table 1. EDK II [Defines] Section Elements {{{
 syn keyword infDefine                   INF_VERSION BASE_NAME EDK_RELEASE_VERSION PI_SPECIFICATION_VERSION UEFI_SPECIFICATION_VERSION FILE_GUID MODULE_TYPE BUILD_NUMBER VERSION_STRING MODULE_UNI_FILE LIBRARY_CLASS PCD_IS_DRIVER ENTRY_POINT UNLOAD_IMAGE CONSTRUCTOR DESTRUCTOR SHADOW PCI_DEVICE_ID PCI_VENDOR_ID PCI_CLASS_CODE PCI_COMPRESS UEFI_HII_RESOURCE_SECTION DEFINE SPEC CUSTOM_MAKEFILE DPX_SOURCE
 " }}}
 " Table 3. EDK II [BuildOptions] Variable Descriptions {{{
 syn keyword infBuildOption              FAMILY TARGET TAGNAME ARCH TOOLCODE ATTRIBUTE
+" }}}
+" Table 9. EDK II Module Types {{{
+syn keyword infModuleType               BASE SEC PEI_CORE PEIM DXE_CORE DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SAL_DRIVER DXE_SMM_DRIVER SMM_CORE UEFI_DRIVER UEFI_APPLICATION USER_DEFINED
 " }}}
 
 syn region  infComment                  start="#" end="$" contains=@Spell
@@ -32,14 +35,14 @@ hi def link infComment                  Comment
 " Identifier
 " Function
 " Statement
-hi def link infSection                  Statement
-hi def link infDefine                   Statement
-hi def link infBuildOption              Statement
 " Conditional
 " Repeat
 " Label
 " Operator
 " Keyword
+hi def link infSection                  Keyword
+hi def link infDefine                   Keyword
+hi def link infBuildOption              Keyword
 " Exception
 " PreProc
 " Include
@@ -47,6 +50,7 @@ hi def link infBuildOption              Statement
 " Macro
 " PreCondit
 " Type
+hi def link infModuleType               Type
 " StorageClass
 " Structure
 " Typedef

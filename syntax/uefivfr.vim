@@ -18,8 +18,8 @@ syn region  vfrString                   start=+L\="+ skip=+\\\\\|\\"+ end=+"+
 syn keyword vfrQuestionHeader           questionid
 syn keyword vfrConstant                 TRUE FALSE ONE ONES ZERO UNDEFINED VERSION
 syn keyword vfrImageLockedTag           image IMAGE_TOKEN locked
-syn keyword vfrStatement                formset endformset form endform formmap rule endrule subtitle endsubtitle goto resetbutton endresetbutton inconsistentif disableif nosubmitif warningif timeout suppressif grayoutif endif checkbox endcheckbox action endaction numeric endnumeric oneof endoneof string endstring password endpassword orderedlist endlist date enddate time endtime label banner line align timeout guidop endguidop data
-syn match   vfrStatement                "text$"
+syn keyword vfrKeyword                  formset endformset form endform formmap rule endrule subtitle endsubtitle goto resetbutton endresetbutton inconsistentif disableif nosubmitif warningif timeout suppressif grayoutif endif checkbox endcheckbox action endaction numeric endnumeric oneof endoneof string endstring password endpassword orderedlist endlist date enddate time endtime label banner line align timeout guidop endguidop data
+syn match   vfrKeyword                  "text$"
 syn keyword vfrAttribute                guid title help classguid class subclass prompt attribute varid name for mid maptitle mapguid flags key devicePath formsetguid formid question refresh interval varstoredevice refreshguid default value option read write config minimum maximum step minsize maxsize year month day hour minute second left center right datatype
 syn match   vfrAttribute                "text\s\+="
 syn keyword vfrConstant                 READ_ONLY INTERACTIVE RESET_REQUIRED OPTIONS_ONLY HORIZONTAL OPTION_DEFAULT OPTION_DEFAULT_MFG INTERACTIVE RESET_REQUIRED DEFAULT CHECKBOX_DEFAULT CHECKBOX_DEFAULT_MFG NUMERIC_SIZE_1 NUMERIC_SIZE_2 NUMERIC_SIZE_4 NUMERIC_SIZE_8 DISPLAY_INT_DEC DISPLAY_UINT_DEC DISPLAY_UINT_HEX MULTI_LINE UNIQUE NOEMPTY YEAR_SUPPRESS MONTH_SUPPRESS DAY_SUPPRESS STORAGE_NORMAL STORAGE_TIME STORAGE_WAKEUP HOUR_SUPPRESS MINUTE_SUPPRESS SECOND_SUPPRESS STORAGE_NORMAL STORAGE_TIME STORAGE_WAKEUP SENSITIVE INSENSITIVE LAST_NON_MATCH FIRST_NON_MATCH
@@ -45,14 +45,14 @@ hi def link vfrNumber                   Number
 " Identifier
 " Function
 " Statement
-hi def link vfrStatement                Statement
-hi def link vfrStore                    Statement
 " Conditional
 " Repeat
 " Label
 " Operator
 hi def link vfrOperator                 Operator
 " Keyword
+hi def link vfrKeyword                  Keyword
+hi def link vfrStore                    Keyword
 hi def link vfrAttribute                Keyword
 hi def link vfrFormSet                  Keyword
 hi def link vfrStr                      Keyword

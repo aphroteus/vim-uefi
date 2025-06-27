@@ -25,7 +25,6 @@ syn region  aslComment                  start="/\*" end="\*/"
 syn keyword aslAccessAttrib             AttribQuick AttribSendReceive AttribByte AttribBytes AttribRawBytes AttribRawProcessBytes AttribWord AttribBlock AttribProcessCall AttribBlockProcessCall
 syn keyword aslAccessType               AnyAcc ByteAcc WordAcc DWordAcc QWordAcc BufferAcc
 syn keyword aslAddress                  AddressRangeMemory AddressRangeReserved AddressRangeNVS AddressRangeACPI
-" syn keyword aslAddressSpace             aslRegionSpace
 syn keyword aslAddressingMode           AddressingMode7Bit AddressingMode10Bit
 syn keyword aslByteLength               DataBitsFive DataBitsSix DataBitsSeven DataBitsEight DataBitsNine
 syn keyword aslBusMaster                BusMaster NotBusMaster
@@ -137,17 +136,11 @@ hi def link aslNumber                   Number
 " Boolean
 " Float
 " Identifier
+hi def link aslName                     Identifier
 " Function
 " Statement
-hi def link aslTblManagement            Statement
-hi def link aslNameObj                  Statement
-hi def link aslOpRegionField            Statement
-hi def link aslBufferField              Statement
-hi def link aslSync                     Statement
-hi def link aslObjRef                   Statement
-hi def link aslControl                  Statement
-hi def link aslDataTypeConv             Statement
 " Conditional
+hi def link aslControl                  Conditional
 " Repeat
 " Label
 " Operator
@@ -159,7 +152,6 @@ hi def link aslControlMethodObj         Keyword
 hi def link aslAccessAttrib             Keyword
 hi def link aslAccessType               Keyword
 hi def link aslAddress                  Keyword
-" hi def link aslAddressSpace             Keyword
 hi def link aslAddressingMode           Keyword
 hi def link aslByteLength               Keyword
 hi def link aslBusMaster                Keyword
@@ -194,9 +186,15 @@ hi def link aslTransferWidth            Keyword
 hi def link aslTranslation              Keyword
 hi def link aslType                     Keyword
 hi def link aslUpdateRule               Keyword
-hi def link aslUserDefRegionSpace       Keyword
 hi def link aslXferType                 Keyword
 hi def link aslWireMode                 Keyword
+hi def link aslTblManagement            Keyword
+hi def link aslNameObj                  Keyword
+hi def link aslOpRegionField            Keyword
+hi def link aslBufferField              Keyword
+hi def link aslSync                     Keyword
+hi def link aslObjRef                   Keyword
+hi def link aslDataTypeConv             Keyword
 " Exception
 " PreProc
 " Include

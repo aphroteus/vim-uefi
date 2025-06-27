@@ -9,15 +9,14 @@ if exists("b:current_syntax")
 endif
 
 syn case match
-syn keyword dscSection                  Defines BuildOptions SkuIds Libraries LibraryClasses PcdsFeatureFlag PcdsFixedAtBuild PcdsDynamicDefault PcdsDynamicHII PcdsDynamicVpd PcdsDynamicExDefault PcdsDynamicExHii PcdsDynamicExVpd Components UserExtensions
+syn keyword dscSection                  Defines BuildOptions SkuIds Libraries LibraryClasses PcdsFeatureFlag PcdsFixedAtBuild PcdsPatchableInModule PcdsDynamic PcdsDynamicEx PcdsDynamicDefault PcdsDynamicHII PcdsDynamicVpd PcdsDynamicExDefault PcdsDynamicExHii PcdsDynamicExVpd Components UserExtensions DefaultStores
 " Table 6. EDK II [Defines] Section Elements {{{
-syn keyword dscDefine                   DSC_SPECIFICATION PLATFORM_GUID PLATFORM_VERSION PLATFORM_NAME SKUID_IDENTIFIER SUPPORTED_ARCHITECTURES BUILD_TARGETS OUTPUT_DIRECTORY FLASH_DEFINITION BUILD_NUMBER FIX_LOAD_TOP_MEMORY_ADDRESS TIME_STAMP_FILE DEFINE EDK_GLOBAL RFC_LANGUAGES ISO_LANGUAGES VPD_TOOL_GUID PCD_INFO_GENERATION PCD_VAR_CHECK_GENERATION
+syn keyword dscDefine                   DSC_SPECIFICATION PLATFORM_GUID PLATFORM_VERSION PLATFORM_NAME SKUID_IDENTIFIER SUPPORTED_ARCHITECTURES BUILD_TARGETS OUTPUT_DIRECTORY FLASH_DEFINITION BUILD_NUMBER FIX_LOAD_TOP_MEMORY_ADDRESS TIME_STAMP_FILE DEFINE EDK_GLOBAL RFC_LANGUAGES ISO_LANGUAGES VPD_TOOL_GUID PCD_INFO_GENERATION PCD_VAR_CHECK_GENERATION PREBUILD POSTBUILD
 " }}}
 " Table 7. EDK II [BuildOptions] Section Elements: Optional Tags {{{
 syn keyword dscBuildOption              FAMILY TARGET TAGNAME ARCH TOOLCODE ATTRIBUTE
 " }}}
 
-syn keyword dscComponent                SOURCE_OVERRIDE_PATH
 syn keyword dscBoolean                  TRUE true True 0x1 0x01 1 FALSE false False 0x0 0x00 0
 " Table 5. Operator Precedence and Supported Operands {{{
 syn keyword dscOperator                 or OR and AND xor XOR EQ NE IN LE GE LT GT not NOT
@@ -26,14 +25,14 @@ syn match   dscOperatorMatch            "||\|&&\||\|==\|!=\|<=\|>=\|<\|>\|+\|-\|
 syn keyword dscType                     BOOLEAN UINT8 UINT16 UINT32 UINT64 UINT8z UINT16z UINT32z UINT64z VOID
 syn match   dscFieldSeparator           "|"
 syn region  dscComment                  start="#" end="$" contains=@Spell
-syn keyword dscStatement                !include
+syn keyword dscKeyword                  !include
 syn match   dscConditional              "!\(ifdef\|ifndef\|if\|elseif\|else\|endif\)"
 syn region  dscVariable                 start="\$(" skip="\\)\|\\\\" end=")"
 
-"syn match   decFileSep                  "\/"
-"syn match   decFile                     "\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
-"syn match   decFilePath                 "\(\w\(\w\|\.\|\-\)*\)\(\/\(\w\(\w\|\.\|\-\)*\)\)*\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
-syn match   decCommaSpace               transparent contained "\,\s+"
+" syn match   decFileSep                  "\/"
+" syn match   decFile                     "\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
+" syn match   decFilePath                 "\(\w\(\w\|\.\|\-\)*\)\(\/\(\w\(\w\|\.\|\-\)*\)\)*\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
+" syn match   decCommaSpace               transparent contained "\,\s+"
 syn match   cGUID                       "{\s*0x\x\{8},\s*0x\x\{4},\s*0x\x\{4},\s*{\s*\(0x\x\{2},\s*\)\{7}0x\x\{2}\s*}\s*}"
 syn match   cNullGuid                   "{\s*\(0x0,\s*\)\{3}{\s*\(0x0,\s*\)\{7}0x0\s*}\s*}"
 syn match   stdGUID                     "\x\{8}\-\x\{4}-\x\{4}\-\x\{4}\-\x\{12}"
@@ -58,11 +57,6 @@ hi def link cNullGuid                   Identifier
 hi def link stdGUID                     Identifier
 " Function
 " Statement
-hi def link dscStatement                Statement
-hi def link dscSection                  Statement
-hi def link dscDefine                   Statement
-hi def link dscBuildOption              Statement
-hi def link dscComponent                Statement
 " Conditional
 hi def link dscConditional              Conditional
 " Repeat
@@ -71,6 +65,10 @@ hi def link dscConditional              Conditional
 hi def link dscOperatorMatch            dscOperator
 hi def link dscOperator                 Operator
 " Keyword
+hi def link dscKeyword                  Keyword
+hi def link dscSection                  Keyword
+hi def link dscDefine                   Keyword
+hi def link dscBuildOption              Keyword
 " Exception
 " PreProc
 " Include

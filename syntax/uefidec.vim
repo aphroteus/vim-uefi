@@ -20,9 +20,9 @@ syn match   decTypeMatch                "VOID\*"
 syn match   decFieldSeparator           "|"
 syn region  decComment                  start="#" end="$" contains=@Spell
 
-syn match   decFileSep                  "\/"
-syn match   decFile                     "\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
-syn match   decCommaSpace               transparent contained "\,\s+"
+" syn match   decFileSep                  "\/"
+" syn match   decFile                     "\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
+" syn match   decCommaSpace               transparent contained "\,\s+"
 syn match   decHexByte                  "0\(x\|X\)\x"
 syn match   cGUID                       "{\s*0x\x\{8},\s*0x\x\{4},\s*0x\x\{4},\s*{\s*\(0x\x\{2},\s*\)\{7}0x\x\{2}\s*}\s*}"
 syn match   cNullGuid                   "{\s*\(0x0,\s*\)\{3}{\s*\(0x0,\s*\)\{7}0x0\s*}\s*}"
@@ -47,13 +47,13 @@ hi def link cNullGuid                   Identifier
 hi def link stdGUID                     Identifier
 " Function
 " Statement
-hi def link decSection                  Statement
-hi def link decDefine                   Statement
 " Conditional
 " Repeat
 " Label
 " Operator
 " Keyword
+hi def link decSection                  Keyword
+hi def link decDefine                   Keyword
 " Exception
 " PreProc
 " Include

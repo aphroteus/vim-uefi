@@ -27,12 +27,12 @@ hi def link uniString                   String
 " Identifier
 " Function
 " Statement
-hi def link uniKeyword                  Statement
 " Conditional
 " Repeat
 " Label
 " Operator
 " Keyword
+hi def link uniKeyword                  Keyword
 " Exception
 " PreProc
 " Include
