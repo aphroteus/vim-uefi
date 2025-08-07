@@ -34,8 +34,9 @@ syn region  dscVariable                 start="\$(" skip="\\)\|\\\\" end=")"
 "syn match   decFile                     "\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
 "syn match   decFilePath                 "\(\w\(\w\|\.\|\-\)*\)\(\/\(\w\(\w\|\.\|\-\)*\)\)*\w\(\.\|\w\|\-\)*\.\(\w\|-\)\+"
 syn match   decCommaSpace               transparent contained "\,\s+"
-syn match   decRegistryFormatGUID       "\x\{8}\-\x\{4}-\x\{4}\-\x\{4}\-\x\{12}"
-syn region  decCFormatGUID              start="{\s*0\(x\|X\)\x\{8}\,\s\+" end="0\(x\|X\)\x\{2}\s*\}\s*\}" oneline contains=decCommaSpace
+syn match   cGUID                       "{\s*0x\x\{8},\s*0x\x\{4},\s*0x\x\{4},\s*{\s*\(0x\x\{2},\s*\)\{7}0x\x\{2}\s*}\s*}"
+syn match   cNullGuid                   "{\s*\(0x0,\s*\)\{3}{\s*\(0x0,\s*\)\{7}0x0\s*}\s*}"
+syn match   stdGUID                     "\x\{8}\-\x\{4}-\x\{4}\-\x\{4}\-\x\{12}"
 syn match   decNumber                   display "0x\x\+\(u\=l\{0,2}\|ll\=u\)\>"
 
 
@@ -52,8 +53,9 @@ hi def link dscBoolean                  Boolean
 " Float
 " Identifier
 hi def link dscVariable                 Identifier
-hi def link decCFormatGUID              Identifier
-hi def link decRegistryFormatGUID       Identifier
+hi def link cGUID                       Identifier
+hi def link cNullGuid                   Identifier
+hi def link stdGUID                     Identifier
 " Function
 " Statement
 hi def link dscStatement                Statement
