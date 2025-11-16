@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:    UEFI C
 " Maintainer:  Paul Huang
-" Last Change: 2025 Jun 10
+" Last Change: 2025 Nov 16
 
 " uefic extensions
 " Refer to UEFI Specification version 2.9
@@ -134,5 +134,10 @@ hi def link ueficEfiStatusWarning       x203_IndianRed1
 " Todo
 " }}}
 
+
+" Extend cFormat to include UEFI specifiers %r and %t
+" This re-defines the cFormat match from the original c.vim syntax file,
+" adding 'r' and 't' to the list of valid conversion specifiers.
+syn match cFormat display "%\%(\d\+\$\)\=[-+' #0*]*\%(\d*\|\*\|\*\d\+\$\)\%(\.\%(\d*\|\*\|\*\d\+\$\)\)\=\%([hlLjzt]\|ll\|hh\)\=\%([aAbdiuoxXDOUfFeEgGcCsSpnrt]\|\[\^\=.[^]]*\]\)" contained
 
 " vim:ts=8:foldmethod=marker
