@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:    UEFI C
 " Maintainer:  Paul Huang
-" Last Change: 2025 Nov 16
+" Last Change: 2026 Apr 03
 
 " uefic extensions
 " Refer to UEFI Specification version 2.9
@@ -30,11 +30,11 @@ syn keyword ueficArmPagingAttribute     EFI_MEMORY_XP EFI_MEMORY_RO EFI_MEMORY_R
 
 " Table 2-10 UEFI Protocols {{{
 syn keyword ueficProtocol               EFI_LOADED_IMAGE_PROTOCOL EFI_LOADED_IMAGE_DEVICE_PATH_PROTOCOL EFI_DEVICE_PATH_PROTOCOL EFI_DRIVER_BINDING_PROTOCOL EFI_DRIVER_FAMILY_OVERRIDE_PROTOCOL EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL EFI_BUS_SPECIFIC_DRIVER_OVERRIDE_PROTOCOL EFI_DRIVER_DIAGNOSTICS2_PROTOCOL EFI_COMPONENT_NAME2_PROTOCOL EFI_SIMPLE_TEXT_INPUT_PROTOCOL EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL EFI_SIMPLE_POINTER_PROTOCOL EFI_SERIAL_IO_PROTOCOL EFI_LOAD_FILE_PROTOCOL EFI_LOAD_FILE2_PROTOCOL EFI_SIMPLE_FILE_SYSTEM_PROTOCOL EFI_FILE_PROTOCOL EFI_DISK_IO_PROTOCOL EFI_BLOCK_IO_PROTOCOL EFI_BLOCK_IO2_PROTOCOL EFI_UNICODE_COLLATION_PROTOCOL EFI_PCI_ROOT_BRIDGE_IO_PROTOCOL EFI_PCI_IO_PROTOCOL EFI_USB_IO_PROTOCOL EFI_SIMPLE_NETWORK_PROTOCOL EFI_PXE_BASE_CODE_PROTOCOL EFI_BIS_PROTOCOL EFI_DEBUG_SUPPORT_PROTOCOL EFI_DEBUGPORT_PROTOCOL EFI_DECOMPRESS_PROTOCOL EFI_EBC_PROTOCOL EFI_GRAPHICS_OUTPUT_PROTOCOL EFI_NVM_EXPRESS_PASS_THRU_PROTOCOL EFI_EXT_SCSI_PASS_THRU_PROTOCOL EFI_USB2_HC_PROTOCOL EFI_AUTHENTICATION_INFO_PROTOCOL EFI_DEVICE_PATH_UTILITIES_PROTOCOL EFI_DEVICE_PATH_TO_TEXT_PROTOCOL EFI_DEVICE_PATH_FROM_TEXT_PROTOCOL EFI_EDID_DISCOVERED_PROTOCOL EFI_EDID_ACTIVE_PROTOCOL EFI_EDID_OVERRIDE_PROTOCOL EFI_ISCSI_INITIATOR_NAME_PROTOCOL EFI_TAPE_IO_PROTOCOL EFI_MANAGED_NETWORK_PROTOCOL EFI_ARP_SERVICE_BINDING_PROTOCOL EFI_ARP_PROTOCOL EFI_DHCP4_SERVICE_BINDING_PROTOCOL EFI_DHCP4_PROTOCOL EFI_TCP4_SERVICE_BINDING_PROTOCOL EFI_TCP4_PROTOCOL EFI_IP4_SERVICE_BINDING_PROTOCOL EFI_IP4_PROTOCOL EFI_IP4_CONFIG_PROTOCOL EFI_IP4_CONFIG2_PROTOCOL EFI_UDP4_SERVICE_BINDING_PROTOCOL EFI_UDP4_PROTOCOL EFI_MTFTP4_SERVICE_BINDING_PROTOCOL EFI_MTFTP4_PROTOCOL EFI_HASH_PROTOCOL EFI_HASH_SERVICE_BINDING_PROTOCOL EFI_SD_MMC_PASS_THRU_PROTOCOL
-syn match   ueficProtocolMatch          "\<EFI_\(\u\|_\|\d\)\+_PROTOCOL\>" contained
+syn match   ueficProtocolMatch          display "\<EFI_[A-Z0-9_]\+_PROTOCOL\>"
 " }}}
 
 " Table 2-11 Required UEFI Implementation Elements {{{
-syn keyword ueficImplementationElement  EFI_SYSTEM_TABLE EFI_BOOT_SERVICES EFI_RUNTIME_SERVICES EFI_LOADED_IMAGE_PROTOCOL EFI_LOADED_IMAGE_DEVICE_PATH_PROTOCOL EFI_DEVICE_PATH_PROTOCOL EFI_DECOMPRESS_PROTOCOL EFI_DEVICE_PATH_UTILITIES_PROTOCOL
+syn keyword ueficImplementationElement  EFI_SYSTEM_TABLE EFI_BOOT_SERVICES EFI_RUNTIME_SERVICES
 " }}}
 
 " Table 3-1 Global Variables {{{
@@ -66,15 +66,12 @@ syn keyword ueficEfiStatusError         EFI_LOAD_ERROR EFI_INVALID_PARAMETER EFI
 syn keyword ueficEfiStatusWarning       EFI_WARN_UNKNOWN_GLYPH EFI_WARN_DELETE_FAILURE EFI_WARN_WRITE_FAILURE EFI_WARN_BUFFER_TOO_SMALL EFI_WARN_STALE_DATA EFI_WARN_FILE_SYSTEM EFI_WARN_RESET_REQUIRED
 " }}}
 
-syn match   ueficTypeMacro              "\<\u\(\u\|_\|\d\)\+\>"
-syn match   ueficSystemTable            "\<g\(BS\|RT\|ST\)\>"
-syn match   ueficFunction               "\<\w\+\s*(\@=" contains=cParen
-syn match   ueficOperator               "[!~*&%<>^|=+-]"
-syn match   ueficOperator               "\(<<\|>>\|[-+*/%&^|<>!=]\)="
-syn match   ueficOperator               "<<\|>>\|&&\|||\|++\|--\|->"
-
-
-hi x203_IndianRed1                      ctermfg=203 guifg=#ff5f5f
+syn match   ueficTypeMacro              display "\<[A-Z][A-Z0-9_]\+\>" contained
+syn match   ueficSystemTable            display "\<g\(BS\|RT\|ST\)\>"
+syn match   ueficFunction               display "\<\h\w*\>\ze\s*("
+syn match   ueficOperator               display "[!~*&%<>^|=+-]"
+syn match   ueficOperator               display "\(<<\|>>\|[-+*/%&^|<>!=]\)="
+syn match   ueficOperator               display "<<\|>>\|&&\|||\|++\|--\|->"
 
 
 " Highlight Default Link {{{
@@ -129,8 +126,8 @@ hi def link ueficTypeMacro              Typedef
 " Underlined
 " Ignore
 " Error
-hi def link ueficEfiStatusError         x203_IndianRed1
-hi def link ueficEfiStatusWarning       x203_IndianRed1
+hi def link ueficEfiStatusError         Error
+hi def link ueficEfiStatusWarning       WarningMsg
 " Todo
 " }}}
 
