@@ -14,11 +14,12 @@ Implemented in modern **Vim9 script**, conforming to standard Vim runtime engine
   - UEFI HII String / Unicode (`*.uni`)
   - UEFI Visual Forms Representation (`*.vfr`, `*.hfr`, `*.sd`)
   - ACPI Source Language (`*.asl`, `*.asi`, `*.dsl`)
+  - SDL (`*.sdl`)
   - UEFI C extensions (`after/syntax/c.vim` for types, status codes, protocols, `%r`, `%t`)
 - **Indentation (`indent/`)**:
   - Automatic C-style indentation (`cindent`) for ASL (`*.asl`) and VFR (`*.vfr`) files.
 - **Comment Support (`ftplugin/`)**:
-  - Automatically sets `commentstring` for all supported formats (`#` for DEC/DSC/FDF/INF, `//` for UNI, `//` and `/* */` for ASL/VFR). Compatible with native commenting (`gc`).
+  - Automatically sets `commentstring` for all supported formats (`#` for DEC/DSC/FDF/INF/SDL, `//` for UNI, `//` and `/* */` for ASL/VFR/C). Compatible with native commenting (`gc`).
 - **Log Helper**:
   - Press `<F5>` in any `*.log` file to reload from disk and jump to the bottom (`G`).
 - **Vim Help Documentation**:
@@ -71,6 +72,9 @@ let g:uefi_highlight_operators = 1
 
 " Toggle <F5> log reload in *.log files (default: 1)
 let g:uefi_log_f5_reload = 1
+
+" Disable UEFI C ftplugin extensions (default: 0)
+let g:uefi_no_c_ftplugin = 0
 ```
 
 ## Testing

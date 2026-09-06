@@ -26,6 +26,7 @@ File Extension     Filetype     Description
 *.dsc              uefidsc      EDK II Platform Description File
 *.fdf              uefifdf      EDK II Flash Description File
 *.inf              uefiinf      EDK II Module Information File
+*.sdl              sdl          SDL File
 *.uni              uefiuni      UEFI HII String / Unicode File
 *.vfr, *.hfr, *.sd uefivfr      UEFI Visual Forms Representation
 *.asl, *.asi, *.dsl asl         ACPI Source Language (ASL)
@@ -37,7 +38,7 @@ File Extension     Filetype     Description
 
 Comments:
     Each filetype automatically sets 'commentstring' and 'comments':
-    - # for DEC, DSC, FDF, INF
+    - # for DEC, DSC, FDF, INF, and SDL
     - // for UNI
     - // and /* */ for ASL, VFR, and C
 
@@ -74,6 +75,11 @@ g:uefi_c_syntax					*g:uefi_c_syntax*
 g:uefi_no_c_syntax					*g:uefi_no_c_syntax*
     Set to 1 to completely disable UEFI C syntax extensions in
     after/syntax/c.vim. (Equivalent to g:uefi_c_syntax = 0).
+    Default: 0
+
+g:uefi_no_c_ftplugin					*g:uefi_no_c_ftplugin*
+    Set to 1 to completely disable UEFI C ftplugin extensions in
+    after/ftplugin/c.vim.
     Default: 0
 
 g:uefi_highlight_functions			*g:uefi_highlight_functions*

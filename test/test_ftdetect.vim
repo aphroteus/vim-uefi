@@ -27,13 +27,17 @@ export def Run()
   # Test 3: Log files
   CheckFileType('build.log', 'log', 'ftdetect: *.log sets filetype to log')
 
-  # Test 4: System collision overrides
+  # Test 4: SDL file extension
+  CheckFileType('test.sdl', 'sdl', 'ftdetect: *.sdl sets filetype to sdl')
+
+  # Test 5: System collision overrides
   CheckFileType('Platform.inf', 'uefiinf', 'ftdetect override: *.inf overrides system "inform" to uefiinf')
   CheckFileType('DSDT.dsl', 'asl', 'ftdetect override: *.dsl overrides system "structurizr" to asl')
   CheckFileType('Setup.sd', 'uefivfr', 'ftdetect override: *.sd overrides system "sd" to uefivfr')
 
-  # Test 5: Autocommand group membership
+  # Test 6: Autocommand group membership
   t.AssertTrue('augroup: uefi rules registered under filetypedetect', exists('#filetypedetect#BufNewFile#*.dec'))
   t.AssertTrue('augroup: asl rules registered under filetypedetect', exists('#filetypedetect#BufNewFile#*.asl'))
   t.AssertTrue('augroup: log rules registered under filetypedetect', exists('#filetypedetect#BufNewFile#*.log'))
+  t.AssertTrue('augroup: sdl rules registered under filetypedetect', exists('#filetypedetect#BufNewFile#*.sdl'))
 enddef
