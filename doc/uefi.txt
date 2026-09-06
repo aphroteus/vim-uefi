@@ -1,0 +1,97 @@
+*uefi.txt*	UEFI BIOS Development Support for Vim		Sep 03, 2026
+
+==============================================================================
+CONTENTS						*uefi-contents*
+
+    1. Introduction .................................... |uefi-intro|
+    2. Supported Filetypes ............................. |uefi-filetypes|
+    3. Features & Indentation .......................... |uefi-features|
+    4. Log File Reloading .............................. |uefi-log|
+    5. Configuration Options ........................... |uefi-options|
+    6. License ......................................... |uefi-license|
+
+==============================================================================
+1. INTRODUCTION						*uefi-intro* *uefi*
+
+vim-uefi provides syntax highlighting, indentation, and filetype plugin
+configuration for files commonly used in UEFI BIOS development with EDK II
+and ACPI Source Language (ASL).
+
+==============================================================================
+2. SUPPORTED FILETYPES					*uefi-filetypes*
+
+File Extension     Filetype     Description
+--------------     --------     -----------
+*.dec              uefidec      EDK II Package Declaration File
+*.dsc              uefidsc      EDK II Platform Description File
+*.fdf              uefifdf      EDK II Flash Description File
+*.inf              uefiinf      EDK II Module Information File
+*.uni              uefiuni      UEFI HII String / Unicode File
+*.vfr, *.hfr, *.sd uefivfr      UEFI Visual Forms Representation
+*.asl, *.asi, *.dsl asl         ACPI Source Language (ASL)
+*.c, *.h           c            UEFI C language extensions (after/syntax/c.vim)
+*.log              log          Log files with <F5> auto-refresh
+
+==============================================================================
+3. FEATURES & INDENTATION				*uefi-features*
+
+Comments:
+    Each filetype automatically sets 'commentstring' and 'comments':
+    - # for DEC, DSC, FDF, INF
+    - // for UNI
+    - // and /* */ for ASL, VFR, and C
+
+Indentation:
+    C-style automatic indentation ('cindent') is enabled for ASL (*.asl)
+    and VFR (*.vfr) files.
+
+==============================================================================
+4. LOG FILE RELOADING					*uefi-log*
+
+For *.log files, pressing <F5> in normal mode reloads the file from disk
+and jumps directly to the end of the buffer:
+    <F5> -> reload buffer and go to bottom line (G)
+
+To disable this mapping, set in your |vimrc|: >
+    let g:uefi_log_f5_reload = 0
+<
+==============================================================================
+5. CONFIGURATION OPTIONS				*uefi-options*
+
+g:uefi_c_syntax					*g:uefi_c_syntax*
+    Controls how UEFI C syntax extensions are loaded for C files:
+      'auto' (default) : Uses a fast 3-tier heuristic (in-memory buffer
+                         DNA, module *.inf proximity, and package *.dec
+                         proximity) to automatically enable UEFI syntax
+                         for EDK II, OEM, ODM, and 3rd-party modules,
+                         while guaranteeing 100% zero pollution for
+                         regular C projects.
+      1                : Unconditionally enable UEFI C syntax for all
+                         C files (ideal for dedicated BIOS dev machines).
+      0                : Unconditionally disable UEFI C syntax.
+    Default: 'auto'
+
+g:uefi_no_c_syntax					*g:uefi_no_c_syntax*
+    Set to 1 to completely disable UEFI C syntax extensions in
+    after/syntax/c.vim. (Equivalent to g:uefi_c_syntax = 0).
+    Default: 0
+
+g:uefi_highlight_functions			*g:uefi_highlight_functions*
+    Set to 0 to disable function call highlighting in C files.
+    Default: 1
+
+g:uefi_highlight_operators			*g:uefi_highlight_operators*
+    Set to 0 to disable operator highlighting in C files.
+    Default: 1
+
+g:uefi_log_f5_reload					*g:uefi_log_f5_reload*
+    Set to 0 to disable the <F5> log reload keymapping in *.log files.
+    Default: 1
+
+==============================================================================
+6. LICENSE						*uefi-license*
+
+vim-uefi is distributed under the MIT License. See the LICENSE file for
+details.
+
+vim:tw=78:ts=8:ft=help:norl:

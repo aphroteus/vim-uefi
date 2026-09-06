@@ -1,7 +1,22 @@
 " Vim syntax file
 " Language:    UEFI C
 " Maintainer:  Paul Huang
-" Last Change: 2026 Apr 03
+" Last Change: 2026 Sep 05
+
+" Determine whether to load UEFI C extensions:
+" - g:uefi_no_c_syntax == 1 or g:uefi_c_syntax == 0: completely disabled
+" - g:uefi_c_syntax == 1: unconditionally force-enabled
+" - g:uefi_c_syntax == 'auto' (default): smart 3-tier heuristic detection
+let s:c_mode = string(get(g:, 'uefi_c_syntax', 'auto'))
+if get(g:, 'uefi_no_c_syntax', 0) || s:c_mode ==# '0' || s:c_mode ==# "'0'"
+  finish
+endif
+
+if s:c_mode !=# '1' && s:c_mode !=# "'1'"
+  if !uefi#IsUefiC()
+    finish
+  endif
+endif
 
 " uefic extensions
 " Refer to UEFI Specification version 2.9
@@ -68,10 +83,14 @@ syn keyword ueficEfiStatusWarning       EFI_WARN_UNKNOWN_GLYPH EFI_WARN_DELETE_F
 
 syn match   ueficTypeMacro              display "\<[A-Z][A-Z0-9_]\+\>" contained
 syn match   ueficSystemTable            display "\<g\(BS\|RT\|ST\)\>"
-syn match   ueficFunction               display "\<\h\w*\>\ze\s*("
-syn match   ueficOperator               display "[!~*&%<>^|=+-]"
-syn match   ueficOperator               display "\(<<\|>>\|[-+*/%&^|<>!=]\)="
-syn match   ueficOperator               display "<<\|>>\|&&\|||\|++\|--\|->"
+if get(g:, 'uefi_highlight_functions', 1)
+  syn match   ueficFunction               display "\<\h\w*\>\ze\s*("
+endif
+if get(g:, 'uefi_highlight_operators', 1)
+  syn match   ueficOperator               display "[!~*&%<>^|=+-]"
+  syn match   ueficOperator               display "\(<<\|>>\|[-+*/%&^|<>!=]\)="
+  syn match   ueficOperator               display "<<\|>>\|&&\|||\|++\|--\|->"
+endif
 
 
 " Highlight Default Link {{{
@@ -89,14 +108,18 @@ hi def link ueficBoolean                Boolean
 " Float
 " Identifier
 " Function
-hi def link ueficSystemTable            ueficFunction
-hi def link ueficFunction               Function
+hi def link ueficSystemTable            Function
+if get(g:, 'uefi_highlight_functions', 1)
+  hi def link ueficFunction             Function
+endif
 " Statement
 " Conditional
 " Repeat
 " Label
 " Operator
-hi def link ueficOperator               Operator
+if get(g:, 'uefi_highlight_operators', 1)
+  hi def link ueficOperator             Operator
+endif
 " Keyword
 " Exception
 " PreProc
