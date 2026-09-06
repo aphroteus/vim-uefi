@@ -26,6 +26,7 @@ syn keyword vfrConstant                 READ_ONLY INTERACTIVE RESET_REQUIRED OPT
 syn keyword vfrOperator                 OR AND NOT catenatev match dup ideqval ideqid ideqvallist questionref ruleref stringref pushthis security get length questionrefval stringrefval boolval stringval format unintval toupper tolower set cond find mid token span map match2
 syn match   vfrOperator                 "[|&=!<>*/%~+-]"
 syn region  vfrCommentL                 start="//" skip="\\$" end="$" keepend
+syn region  vfrComment                  start="/\*" end="\*/"
 syn match   vfrNumber                   "\<\d\+\(u\=l\{0,2}\|ll\=u\)\>"
 syn match   vfrNumber                   "0x\x\+\(u\=l\{0,2}\|ll\=u\)\>"
 
@@ -33,6 +34,7 @@ syn match   vfrNumber                   "0x\x\+\(u\=l\{0,2}\|ll\=u\)\>"
 " Highlight Default Link {{{
 " Comment
 hi def link vfrCommentL                 Comment
+hi def link vfrComment                  Comment
 " Constant
 hi def link vfrConstant                 Constant
 " String
@@ -82,6 +84,7 @@ hi def link vfrDataStruct               Type
 " Todo
 " }}}
 
+syn sync ccomment vfrComment minlines=50
 
 let b:current_syntax = "uefivfr"
 

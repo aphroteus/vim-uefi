@@ -1,5 +1,6 @@
-augroup logvim
-  autocmd!
-  autocmd BufNewFile,BufRead *.log set filetype=log
-augroup END
+vim9script
+# Vim filetype detection file for Log files
 
+augroup filetypedetect
+  autocmd BufNewFile,BufRead *.log setfiletype log
+augroup END

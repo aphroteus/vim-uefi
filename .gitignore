@@ -1,0 +1,22 @@
+# Specs, documents and temporary markdown dumps
+*.pdf
+output*.md
+pdf_to_md.py
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Vim tags and swap files
+tags
+tags-*
+*~
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

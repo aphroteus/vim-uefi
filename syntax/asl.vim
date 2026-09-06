@@ -219,6 +219,7 @@ hi def link aslMacro                    Macro
 " Todo
 " }}}
 
+syn sync ccomment aslComment minlines=50
 
 let b:current_syntax = "asl"
 
