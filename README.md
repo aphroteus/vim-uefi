@@ -73,6 +73,29 @@ let g:uefi_highlight_operators = 1
 let g:uefi_log_f5_reload = 1
 ```
 
+## Testing
+
+The plugin includes a self-contained automated test suite implemented in pure Vim9 script with zero external dependencies.
+
+### Running Tests Locally
+
+Run the complete test suite directly via Vim:
+```bash
+vim --clean -Nu test/minivimrc -es -S test/run_all.vim
+```
+
+Or use the provided wrapper scripts:
+
+#### Windows (PowerShell)
+```powershell
+powershell -ExecutionPolicy Bypass -File test/run.ps1
+```
+
+#### Linux / macOS
+```bash
+./test/run.sh
+```
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.

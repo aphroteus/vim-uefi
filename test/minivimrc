@@ -1,0 +1,13 @@
+vim9script
+# Minimal vimrc for running vim-uefi tests in isolated environment
+
+set nocompatible
+filetype off
+syntax off
+
+# Set runtimepath to repository root and $VIMRUNTIME
+var repo_root = fnamemodify(expand('<sfile>:p:h:h'), ':p')->substitute('[/\\]$', '', '')
+&runtimepath = repo_root .. ',' .. $VIMRUNTIME .. ',' .. repo_root .. '/after'
+
+filetype plugin indent on
+syntax on
